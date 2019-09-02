@@ -1,8 +1,8 @@
+# Home Page Controller
 class HomeController < ApplicationController
-  skip_before_action :verify_authenticity_token, :only => :auth_callback
+  skip_before_action :verify_authenticity_token, only: :auth_callback
 
   def index
-    
   end
 
   def auth_callback

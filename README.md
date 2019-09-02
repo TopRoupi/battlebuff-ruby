@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby Version
 
-Things you may want to cover:
+  2.6.0
 
-* Ruby version
+* Configuration 
+  
+  create a **/config/application.yml** file like
+  ```yml
+  STEAM_KEY: <your key>
+  ```
 
 * System dependencies
 
-* Configuration
+  Postgresql 11.5
 
-* Database creation
+* Database setup
 
-* Database initialization
+  ```sh
+  rails db:create 
+  rails db:migrate 
+  ```
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+* Services
 
 * Deployment instructions
-
-* ...
