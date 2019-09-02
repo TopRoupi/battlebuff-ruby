@@ -2,18 +2,18 @@
 
 * Ruby Version
 
-  2.6.0
+  ```2.6.0```
 
 * Configuration 
   
-  create a **/config/application.yml** file like
   ```yml
+  #config/application.yml
   STEAM_KEY: <your key>
   ```
 
 * System dependencies
 
-  Postgresql 11.5
+  ```Postgresql 11.5```
 
 * Database setup
 
@@ -27,3 +27,12 @@
 * Services
 
 * Deployment instructions
+
+# TODO
+
+- [x] steam login
+- [x] home page
+- [ ] test suite
+- [ ] implement pusher for chat
+- [ ] improve home page 
+- [ ] implement docker for deploys
