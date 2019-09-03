@@ -1,0 +1,21 @@
+# volumes:
+#   db-data:
+#    external: false
+
+# services:
+  db:
+    image: postgres:11.5
+    env_file: .env
+    volumes:
+      - db-data:/var/lib/postgresql/db-data
+
+  app:
+    build: .
+    env_file: .env
+    command: bundle exec rails s -p 80 -b '0.0.0.0'
+    volumes: 
+      - .:/usr/src/app
+    ports:
+      - "80:80"
+    links:
+      - db
