@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post 'auth/steam/callback' => 'home#auth_callback'
 
+  get 'auth/steam/callback' => 'home#auth_callback'
+
   get 'logout' => 'home#logout'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
