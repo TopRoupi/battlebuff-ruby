@@ -43,8 +43,8 @@
 - [x] steam login
 - [x] home page
 - [x] implement docker for deploys
-- [ ] test suite
+- [x] test suite
+- [x] omniauth-steam test
 - [ ] automated tests
 - [ ] implement pusher for chat
 - [ ] improve home page 
-- [ ] omniauth-steam test
