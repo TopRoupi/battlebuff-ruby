@@ -1,4 +1,6 @@
-# README
+# ![Figaro](https://i.imgur.com/uG0EFjh.png)
+
+# REQUIREMENTS
 
 * Ruby Version
 
@@ -24,15 +26,25 @@
 
 * How to run the test suite
 
-* Services
+  ```sh
+  bundle exec rake spec
+  ```
+
+<!-- * Services -->
 
 * Deployment instructions
+
+```
+  just push on heroku lol
+```
 
 # TODO
 
 - [x] steam login
 - [x] home page
+- [x] implement docker for deploys
 - [ ] test suite
+- [ ] automated tests
 - [ ] implement pusher for chat
 - [ ] improve home page 
-- [ ] implement docker for deploys
+- [ ] omniauth-steam test

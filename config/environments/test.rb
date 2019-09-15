@@ -1,4 +1,6 @@
-Rails.application.configure do
+# frozen_string_literal: true
+
+Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
@@ -43,4 +45,39 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # omni auth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:steam] = OmniAuth::AuthHash.new(
+    provider: 'steam',
+    uid: '76561198010202071',
+    info: {
+      nickname: 'Reu',
+      name: 'Rodrigo Navarro',
+      location: 'BR',
+      image: 'http://media.steampowered.com/steamcommunity/public/images/avatars/3c/3c91a935dca0c1e243f3a67a198b0abea9cf6d48_medium.jpg',
+      urls: {
+        Profile: 'http://steamcommunity.com/id/rnavarro1/'
+      }
+    },
+    credentials: {},
+    extra: {
+      raw_info: {
+        steamid: '76561198010202071',
+        communityvisibilitystate: 3,
+        profilestate: 1,
+        personaname: 'Reu',
+        lastlogoff: 1_325_637_158,
+        profileurl: 'http://steamcommunity.com/id/rnavarro1/',
+        avatar: 'http://media.steampowered.com/steamcommunity/public/images/avatars/3c/3c91a935dca0c1e243f3a67a198b0abea9cf6d48.jpg',
+        avatarmedium: 'http://media.steampowered.com/steamcommunity/public/images/avatars/3c/3c91a935dca0c1e243f3a67a198b0abea9cf6d48_medium.jpg',
+        avatarfull: 'http://media.steampowered.com/steamcommunity/public/images/avatars/3c/3c91a935dca0c1e243f3a67a198b0abea9cf6d48_full.jpg',
+        personastate: 1,
+        realname: 'Rodrigo Navarro',
+        primaryclanid: '103582791432706194',
+        timecreated: 1_243_031_082,
+        loccountrycode: 'BR'
+      }
+    }
+  )
 end
