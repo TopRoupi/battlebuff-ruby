@@ -5,11 +5,9 @@ Rails.application.routes.draw do
 
   get 'home' => 'home#index'
 
-  post 'auth/steam/callback' => 'home#auth_callback'
+  match '/auth/steam/callback' => 'sessions#create', via: [:get, :post]
 
-  get 'auth/steam/callback' => 'home#auth_callback'
-
-  get 'logout' => 'home#logout'
+  get '/logout', to: 'sessions#destroy', as: :logout
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
