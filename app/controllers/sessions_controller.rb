@@ -3,14 +3,8 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def create
-    begin
-      @player = Player.from_omniauth request.env['omniauth.auth']
-    rescue
-      flash[:error] = "Can't authorize you..."
-    else
-      session[:player_id] = @player.id
-      flash[:success] = "Welcome, #{@player.nickname}!"
-    end
+    @player = Player.from_omniauth request.env['omniauth.auth']
+    session[:player_id] = @player.id
     redirect_to root_path
   end
 
