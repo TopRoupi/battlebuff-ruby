@@ -1,6 +1,5 @@
 *.rbc
 capybara-*.html
-.rspec
 /log
 /tmp
 /db/*.sqlite3
@@ -49,3 +48,12 @@ bower.json
 # Ignore node_modules
 node_modules/
 
+
+/storage/*
+!/storage/.keep
+/public/assets
+/public/packs
+/public/packs-test
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
