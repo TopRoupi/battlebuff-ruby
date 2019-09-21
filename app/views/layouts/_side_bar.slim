@@ -1,0 +1,12 @@
+.well.sidebar-nav
+  - if current_player
+    div.avatarcontainer
+      | #{image_tag current_player.avatar_url, class: 'avatar'}
+    ul.nav.nav-list style="display: block;"
+      li
+        | Name: #{current_player.nickname}
+      li
+        | ID: #{current_player.uid}
+      li= link_to "Logout", logout_path
+  - else
+    li Not logged in.

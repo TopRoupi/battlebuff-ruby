@@ -34,9 +34,10 @@
 
 * Deployment instructions
 
-```
-  just push on heroku lol
-```
+  ```
+    just push on heroku lol
+  ```
+
 
 # TODO
 

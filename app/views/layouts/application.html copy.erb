@@ -7,7 +7,8 @@
     <title><%= content_for?(:title) ? yield(:title) : "Battlebuff" %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
 
@@ -48,7 +49,6 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="col-lg-9">
-          <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->

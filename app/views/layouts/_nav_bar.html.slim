@@ -1,0 +1,15 @@
+div.bg-dark
+  nav.navbar.navbar-dark.bg-dark.navbar-expand-sm
+    = link_to(root_path, class: 'navbar-brand') do
+      | BattleBuff
+    button.navbar-toggler [aria-controls="navbarNav" 
+                          aria-expanded="false" 
+                          aria-label=("Toggle navigation") 
+                          data-target="#navbar-list-2" 
+                          data-toggle="collapse" 
+                          type="button"]
+      span.navbar-toggler-icon
+    #navbar-list-2.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          = link_to "Login", "/auth/steam", class: 'nav-link'
