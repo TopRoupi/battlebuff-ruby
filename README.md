@@ -10,6 +10,8 @@
   
   ```yml
   #config/application.yml
+  
+  #https://steamcommunity.com/dev/apikey
   STEAM_KEY: <your key>
   ```
 
@@ -35,7 +37,17 @@
 * Deployment instructions
 
   ```
-    just push on heroku lol
+    heroku git:remote -a battlebuff
+    git push origin heroku
+  ```
+
+
+* Start application
+
+  ```
+    bundle install
+    yarn install
+    rails s
   ```
 
 
@@ -43,9 +55,7 @@
 
 - [x] steam login
 - [x] home page
-- [x] implement docker for deploys
 - [x] test suite
 - [x] omniauth-steam test
-- [ ] automated tests
 - [ ] implement pusher for chat
 - [ ] improve home page 
