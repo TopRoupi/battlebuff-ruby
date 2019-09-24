@@ -1,16 +1,23 @@
 # ![Figaro](https://i.imgur.com/uG0EFjh.png)
 
+# Description
+
+Dota 2 in-house
+
+### live-demo
+https://battlebuff.herokuapp.com
+
 # REQUIREMENTS
 
 * Ruby Version
 
   ```2.6.0```
 
-* Configuration 
-  
+* Configuration
+
   ```yml
   #config/application.yml
-  
+
   #https://steamcommunity.com/dev/apikey
   STEAM_KEY: <your key>
   ```
@@ -22,8 +29,8 @@
 * Database setup
 
   ```sh
-  rails db:create 
-  rails db:migrate 
+  rails db:create
+  rails db:migrate
   ```
 
 * How to run the test suite
@@ -41,21 +48,12 @@
     git push origin heroku
   ```
 
-
-* Start application
-
-  ```
-    bundle install
-    yarn install
-    rails s
-  ```
-
-
 # TODO
 
 - [x] steam login
 - [x] home page
 - [x] test suite
 - [x] omniauth-steam test
-- [ ] implement pusher for chat
-- [ ] improve home page 
+- [x] implement rails_channels for chat
+- [ ] improve home page
+- [ ] page to report bugs
