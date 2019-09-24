@@ -1,4 +1,6 @@
 class Player < ApplicationRecord
+  has_many :messages
+
   def self.from_omniauth(auth)
     info = auth['info']
     player = find_or_initialize_by(uid: auth['uid'])

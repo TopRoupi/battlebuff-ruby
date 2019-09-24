@@ -2,5 +2,9 @@
 
 # Home Page Controller
 class HomeController < ApplicationController
-  def index; end
+  def index
+    @user = current_player
+    @message = Message.new
+    @messages = Message.last 10
+  end
 end
