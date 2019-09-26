@@ -44,6 +44,8 @@ group :development, :test do
   end
   gem 'rails-controller-testing'
   gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: '4-0-dev'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do

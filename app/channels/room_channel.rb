@@ -1,9 +1,10 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
     stream_from 'room_channel'
+    p 'a user connected'
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+    p 'a user disconnected'
   end
 end

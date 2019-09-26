@@ -33,4 +33,3 @@ submit_messages = function (){
     }
   })
 }
-
