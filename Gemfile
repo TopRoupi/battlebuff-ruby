@@ -36,6 +36,8 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'faker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -45,7 +47,6 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: '4-0-dev'
   gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 group :development do
