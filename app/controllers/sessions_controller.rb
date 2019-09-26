@@ -15,9 +15,21 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def fake
+    @player = Player.create(
+      uid: Faker::Internet.uuid,
+      nickname: Faker::Name.first_name,
+      avatar_url: Faker::Avatar.image,
+      profile_url: 'https://steamcommunity.com/id/lol'
+    )
+    session[:player_id] = @player.id
+    redirect_to root_path
+  end
+
   def destroy
     if current_player
-      session.delete(:player_id)
+      session.delete :player_id
+      cookies.delete :player_id
       flash[:success] = 'Goodbye!'
     end
     redirect_to root_path

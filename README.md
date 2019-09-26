@@ -57,3 +57,4 @@ https://battlebuff.herokuapp.com
 - [x] implement rails_channels for chat
 - [ ] improve home page
 - [ ] page to report bugs
+- [ ] fix the action_cable indentify by cookie
