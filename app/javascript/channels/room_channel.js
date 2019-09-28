@@ -3,7 +3,6 @@ import consumer from "./consumer"
 consumer.subscriptions.create("RoomChannel", {
   connected() {
     console.log('live');
-    // Called when the subscription is ready for use on the server
   },
 
   disconnected() {
@@ -11,25 +10,53 @@ consumer.subscriptions.create("RoomChannel", {
   },
 
   received(data) {
-    $('#chat').append('<li>'+data.content+'</li>');
-    console.log(data);
-    // Called when there's incoming data on the websocket for this channel
+    print_message(data);
   }
 });
 
-var submit_messages;
+var entityMap = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+  '/': '&#x2F;',
+  '`': '&#x60;',
+  '=': '&#x3D;'
+};
 
-$(document).on('turbolinks:load', () => {
-  submit_messages();
-})
+function escape_html(string) {
+  return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+    return entityMap[s];
+  });
+}
 
-submit_messages = function (){
+function scroll_chat(){
+  chat = document.getElementById('chat');
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function print_message(message){
+  $('#chat').append('<li>'+escape_html(message.content)+'</li>');
+  scroll_chat();
+}
+
+// clear input when submit a message
+function submit_messages(){
   $('#message_content').on('keydown', (event) => {
     if(event.keyCode === 13){
-
       $('input').click();
       event.target.value = '';
-      event.preventDefault();
     }
   })
 }
+
+$(document).on('turbolinks:load', () => {
+  submit_messages();
+
+  // fix later
+  // i don't know why it's working pls don't modify it
+  setTimeout(() => {
+    scroll_chat();
+  }, 0.1);
+})

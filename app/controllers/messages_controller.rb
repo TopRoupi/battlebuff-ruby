@@ -6,9 +6,10 @@ class MessagesController < ApplicationController
   def create
     @message = Message.create(msg_params)
     @message.player = current_player
-    if @message.save
-      ActionCable.server.broadcast 'room_channel', content: @message.content
-    end
+
+    return unless @message.save
+
+    ActionCable.server.broadcast 'room_channel', content: @message.content
   end
 
   private
