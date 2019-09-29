@@ -1,9 +1,15 @@
 .card.bg-dark
   .card-header Chat
   .card-body
-    ul#chat.chat
-      - @messages.each do |message|
-        li = message.content
+    .row
+      .col-lg-9
+        ul#chat.chat
+          - @messages.each do |message|
+            li = message.content
+      .col-lg-3
+        ul#users
+          - @users.each do |user|
+            li = user.nickname
     hr
     = form_for( @message , remote: true, html: {class: 'input-group'}) do |f|
       = f.text_field (:content), class: 'form-control input-sm', placeholder: 'Message'
