@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
 
     return unless @message.save
 
-    ActionCable.server.broadcast 'room_channel', content: @message.content
+    ActionCable.server.broadcast 'room_channel', content: @message.content, player: @message.player
   end
 
   private

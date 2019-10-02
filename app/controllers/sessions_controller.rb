@@ -22,10 +22,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    player_id = current_player.id
     if current_player
       session.delete :player_id
       cookies.delete :player_id
     end
     redirect_to root_path
+    ActionCable.server.remote_connections.where(current_player: player_id).disconnect
   end
 end

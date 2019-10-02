@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   def current_player
     return nil unless session[:player_id]
 
-    player ||= Player.find_by(id: session[:player_id])
+    player = Player.find_by(id: session[:player_id])
 
-    @current_player ||= player
+    @current_player = player
   end
 
   helper_method :current_player
