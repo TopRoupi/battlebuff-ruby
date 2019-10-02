@@ -2,14 +2,19 @@ import consumer from "./consumer"
 
 consumer.subscriptions.create("PresenceRoomChannel", {
   connected() {
-    // Called when the subscription is ready for use on the server
   },
 
   disconnected() {
-    // Called when the subscription has been terminated by the server
   },
 
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
+    update_presence(data)
   }
 });
+
+function update_presence(data){
+  $('#users').html('');
+  data.forEach((item) => {
+    $('#users').append('<li>'+item.nickname+'</li>');
+  });
+}

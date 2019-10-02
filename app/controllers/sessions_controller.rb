@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
       profile_url: 'https://steamcommunity.com/id/lol'
     )
     session[:player_id] = @player.id
+    cookies.encrypted[:player_id] = @player.id
     redirect_to root_path
   end
 

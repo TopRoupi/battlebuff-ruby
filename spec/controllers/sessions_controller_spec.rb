@@ -14,6 +14,12 @@ RSpec.describe SessionsController, type: :controller do
       get :create
       expect(session).to include(:player_id)
     end
+
+    it 'set player_id on cookie' do
+      get :create
+      expect(cookies.encrypted[:player_id]).to eq(Player.last.id)
+    end
+
     it 'redirects to root_path' do
       get :create
       expect(response).to redirect_to root_url
@@ -30,13 +36,23 @@ RSpec.describe SessionsController, type: :controller do
       get :create
       get :destroy
       expect(session[:player_id]).to be_nil
-      expect(cookies[:player_id]).to be_nil
+      expect(cookies.encrypted[:player_id]).to be_nil
     end
   end
 
   describe 'GET #fake' do
     it 'generate new player' do
       expect { get :fake }.to change(Player, :count).by(1)
+    end
+
+    it 'set player_id on session' do
+      get :fake
+      expect(session).to include(:player_id)
+    end
+
+    it 'set player_id on cookie' do
+      get :fake
+      expect(cookies.encrypted[:player_id]).to eq(Player.last.id)
     end
 
     it 'redirects to root_path' do

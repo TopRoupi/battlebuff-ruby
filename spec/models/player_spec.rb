@@ -40,4 +40,13 @@ RSpec.describe Player, type: :model do
       expect(Player.online_players_by_room(room)).to_not include(player1)
     end
   end
+
+  describe '#set_online_status_by_room' do
+    it 'alter the online status of the player by a room id' do
+      player = create(:player)
+      room = create(:room)
+      player.set_online_status_by_room(true, room.id)
+      expect(player.presence_by_room(room).online).to equal(true)
+    end
+  end
 end

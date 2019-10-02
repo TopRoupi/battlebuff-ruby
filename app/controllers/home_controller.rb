@@ -4,8 +4,8 @@
 class HomeController < ApplicationController
   def index
     @user = current_player
-    # @users = Player.all.where online: true
+    @users = Player.online_players_by_room(1)
     @message = Message.new
-    @messages = Message.joins(:player).last 10
+    @messages = Message.joins(:player).last(10)
   end
 end
