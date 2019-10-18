@@ -13,7 +13,7 @@ jobs:
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
-          --health0retries 5
+          --health-retries 5
       redis:
         image: redis
         ports: ['6379:6379']
