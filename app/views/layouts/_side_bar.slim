@@ -1,5 +1,7 @@
 .well.sidebar-nav
   - if current_player
+    span#player_uid style="display: none"
+      = current_player.uid
     div.avatarcontainer
       | #{image_tag current_player.avatar_url, class: 'avatar'}
     ul.nav.nav-list style="display: block;"

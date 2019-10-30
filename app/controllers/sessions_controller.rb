@@ -3,15 +3,9 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def create
-    begin
-      @player = Player.from_omniauth request.env['omniauth.auth']
-    rescue => e
-      p e.backtrace
-      flash[:error] = "Can't authorize you..."
-    else
-      session[:player_id] = @player.id
-      flash[:success] = "Welcome, #{@player.nickname}!"
-    end
+    @player = Player.from_omniauth request.env['omniauth.auth']
+    session[:player_id] = @player.id
+    cookies.encrypted[:player_id] = @player.id
     redirect_to root_path
   end
 
@@ -23,15 +17,17 @@ class SessionsController < ApplicationController
       profile_url: 'https://steamcommunity.com/id/lol'
     )
     session[:player_id] = @player.id
+    cookies.encrypted[:player_id] = @player.id
     redirect_to root_path
   end
 
   def destroy
     if current_player
+      player_id = current_player.id
       session.delete :player_id
       cookies.delete :player_id
-      flash[:success] = 'Goodbye!'
     end
     redirect_to root_path
+    ActionCable.server.remote_connections.where(current_player: player_id).disconnect
   end
 end

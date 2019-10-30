@@ -56,12 +56,12 @@ html, body{
 
 //chat
 
-.chat
+.chat, .users
 {
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 250px;
 }
 
@@ -70,4 +70,25 @@ html, body{
   margin-bottom: 10px;
   padding-bottom: 5px;
   border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat #name
+{
+  color: #0096b3;
+}
+
+.chat #my_name
+{
+  color: #46f446;
+}
+
+.users li
+{
+  margin-bottom: 5px;
+}
+
+.users li img
+{
+  height: 30px;
+  width: 30px;
 }

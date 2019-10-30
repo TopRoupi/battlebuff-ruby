@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
 
     player = Player.find_by(id: session[:player_id])
 
-    cookies.encrypted[:player_id] ||= player['id']
-    @current_player ||= player
+    @current_player = player
   end
 
   helper_method :current_player

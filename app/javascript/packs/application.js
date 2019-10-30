@@ -20,6 +20,6 @@ import "controllers"
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-$(document).on('turbolinks:load', () => {
-  console.log('\\o/');
-})
+// $(document).on('turbolinks:load', () => {
+//   console.log('\\o/');
+// })

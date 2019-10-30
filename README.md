@@ -1,4 +1,4 @@
-# ![Figaro](https://i.imgur.com/uG0EFjh.png)
+# ![](https://i.imgur.com/uG0EFjh.png)
 
 # Description
 
@@ -44,17 +44,6 @@ https://battlebuff.herokuapp.com
 * Deployment instructions
 
   ```
-    heroku git:remote -a battlebuff
-    git push origin heroku
+  heroku git:remote -a battlebuff
+  git push origin heroku
   ```
-
-# TODO
-
-- [x] steam login
-- [x] home page
-- [x] test suite
-- [x] omniauth-steam test
-- [x] implement rails_channels for chat
-- [ ] improve home page
-- [ ] page to report bugs
-- [ ] fix the action_cable indentify by cookie

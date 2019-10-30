@@ -2,11 +2,9 @@ import consumer from "./consumer"
 
 consumer.subscriptions.create("RoomChannel", {
   connected() {
-    console.log('live');
   },
 
   disconnected() {
-    // Called when the subscription has been terminated by the server
   },
 
   received(data) {
@@ -37,7 +35,18 @@ function scroll_chat(){
 }
 
 function print_message(message){
-  $('#chat').append('<li>'+escape_html(message.content)+'</li>');
+  var name_tag = 'name'
+  if ($('#player_uid').text() == message.player.uid){
+    name_tag = 'my_name'
+  }
+  var message_html = `
+  <li>
+    <span id="${name_tag}">
+      ${message.player.nickname}
+    </span>
+    : ${escape_html(message.content)}
+  </li>`;
+  $('#chat').append(message_html);
   scroll_chat();
 }
 

@@ -1,2 +1,5 @@
-body data-controller="home"
-== render 'chat_box'
+/ == render 'chat_box'
+- if current_player
+  == render 'chat_box'
+- else
+  p faça login
