@@ -22,8 +22,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    player_id = current_player.id
     if current_player
+      player_id = current_player.id
       session.delete :player_id
       cookies.delete :player_id
     end
