@@ -1,0 +1,21 @@
+h1 Listing rooms
+
+table
+  thead
+    tr
+      th Name
+      th Limit
+      th
+      th
+      th
+
+  tbody
+    - @rooms.each do |room|
+      tr
+        td = room.name
+        td = room.limit
+        td = link_to 'Show', room
+
+br
+
+= link_to 'New Room', new_room_path

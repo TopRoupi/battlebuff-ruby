@@ -54,6 +54,9 @@ html, body{
   width: 65px;
   height: 65px; }
 
+.sidebar-nav {
+  word-break: break-all;
+}
 //chat
 
 .chat, .users
@@ -91,4 +94,43 @@ html, body{
 {
   height: 30px;
   width: 30px;
+}
+
+//theme
+
+.avatar {
+  border-color: rgb(51, 51, 51);
+}
+
+html, body {
+  background-color: rgb(28, 29, 30);
+  color: rgb(201, 197, 190);
+}
+
+.bg-dark {
+  background-color: rgb(55, 58, 61) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bg-dark {
+  background-color: rgb(55, 58, 61) !important;
+}
+
+.form-control {
+  color: rgb(202, 198, 190);
+  background-color: rgb(24, 26, 27);
+  border-color:rgb(54, 63, 72);
+}
+
+.btn-primary:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 99, 204);
+  border-color: rgb(0, 103, 214);
+}
+
+* {
+  scrollbar-color: #2a2c2e #1c1e1f;
 }

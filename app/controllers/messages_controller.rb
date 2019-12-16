@@ -9,12 +9,12 @@ class MessagesController < ApplicationController
 
     return unless @message.save
 
-    ActionCable.server.broadcast 'room_channel', content: @message.content, player: @message.player
+    ActionCable.server.broadcast "room_#{@message.room.id}_channel", content: @message.content, player: @message.player
   end
 
   private
 
   def msg_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :room_id)
   end
 end
