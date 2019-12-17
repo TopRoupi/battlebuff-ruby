@@ -9,9 +9,9 @@ body data-controller="chat"
           - @messages.each do |message|
             li
               - if message.player.uid == current_player.uid
-                span#my_name = "#{message.player.nickname}: "
+                span#my_name = "#{message.player.nickname} : "
               - else
-                span#name = "#{message.player.nickname}: "
+                span#name = "#{message.player.nickname} : "
               = message.content
             / li = "#{message.player.nickname}: #{message.content}"
       .col-lg-3

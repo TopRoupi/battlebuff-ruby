@@ -1,13 +1,6 @@
 import consumer from "./consumer"
 
-// wtf?
-setTimeout(() => {
-  room_id = $('#room_id')
-}, 0.1);
-room_id = room_id.innerHTML
-
-
-consumer.subscriptions.create({channel: "RoomChannel", room_id: room_id}, {
+consumer.subscriptions.create({channel: "RoomChannel", room_id: document.getElementById("room_id").innerHTML}, {
   connected() {
   },
 
