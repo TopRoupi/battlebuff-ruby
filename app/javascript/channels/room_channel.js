@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("RoomChannel", {
+consumer.subscriptions.create({channel: "RoomChannel", room_id: document.getElementById("room_id").innerHTML}, {
   connected() {
   },
 
@@ -60,12 +60,10 @@ function submit_messages(){
   })
 }
 
-$(document).on('turbolinks:load', () => {
-  submit_messages();
+submit_messages();
 
-  // fix later
-  // i don't know why it's working pls don't modify it
-  setTimeout(() => {
-    scroll_chat();
-  }, 0.1);
-})
+// fix later
+// i don't know why it's working pls don't modify it
+setTimeout(() => {
+  scroll_chat();
+}, 0.1);

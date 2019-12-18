@@ -21,10 +21,6 @@ class Player < ApplicationRecord
     presences.find_by(room_id: id)
   end
 
-  def self.online_players_by_room(id)
-    joins(:presences).where('presences.room_id': id, 'presences.online': true)
-  end
-
   def set_online_status_by_room(status, id)
     presence_by_room(id).update(online: status)
   end

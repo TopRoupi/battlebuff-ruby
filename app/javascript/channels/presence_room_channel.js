@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("PresenceRoomChannel", {
+consumer.subscriptions.create({channel: "PresenceRoomChannel", room_id: document.getElementById("room_id").innerHTML },{
   connected() {
   },
 

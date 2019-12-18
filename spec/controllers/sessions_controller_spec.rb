@@ -2,8 +2,6 @@
 
 require 'rails_helper'
 
-# TODO: eliminate the copy and paste of "redirects to root_path"
-
 RSpec.describe SessionsController, type: :controller do
   before do
     request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:steam]

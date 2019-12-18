@@ -1,7 +1,7 @@
 body data-controller="chat"
 
 .card.bg-dark
-  .card-header Chat
+  .card-header = "Chat room: #{@room.name}"
   .card-body
     .row
       .col-lg-9
@@ -9,9 +9,9 @@ body data-controller="chat"
           - @messages.each do |message|
             li
               - if message.player.uid == current_player.uid
-                span#my_name = "#{message.player.nickname}: "
+                span#my_name = "#{message.player.nickname} : "
               - else
-                span#name = "#{message.player.nickname}: "
+                span#name = "#{message.player.nickname} : "
               = message.content
             / li = "#{message.player.nickname}: #{message.content}"
       .col-lg-3
@@ -21,3 +21,4 @@ body data-controller="chat"
     = form_for( @message , remote: true, html: {class: 'input-group'}) do |f|
       = f.text_field (:content), class: 'form-control input-sm', placeholder: 'Message'
       = f.submit style: 'border-radius: 0 0.2rem 0.2rem 0', class: 'btn btn-primary btn-sm'
+      = f.hidden_field :room_id
