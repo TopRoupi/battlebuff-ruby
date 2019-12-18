@@ -18,7 +18,8 @@ class PresenceRoomChannel < ApplicationCable::Channel
   private
 
   def broadcast_players_list(room_id)
-    ActionCable.server.broadcast "presence_room_#{room_id}_channel", Player.online_players_by_room(room_id)
+    room = Room.find(room_id)
+    ActionCable.server.broadcast "presence_room_#{room_id}_channel", room.online_players
   end
 
   def alter_online_status(status: nil, room_id: nil)

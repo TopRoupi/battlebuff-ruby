@@ -4,18 +4,19 @@ table
   thead
     tr
       th Name
-      th Limit
+      th Slots
       th
-      th
-      th
-
   tbody
     - @rooms.each do |room|
       tr
         td = room.name
-        td = room.limit
+        td = "#{room.limit}/#{room.online_players.length}"
         td = link_to 'Show', room
 
 br
 
 = link_to 'New Room', new_room_path
+
+br
+
+button onclick="location.reload();" refresh

@@ -1,7 +1,7 @@
 body data-controller="chat"
 
 .card.bg-dark
-  .card-header Chat
+  .card-header = "Chat room: #{@room.name}"
   .card-body
     .row
       .col-lg-9

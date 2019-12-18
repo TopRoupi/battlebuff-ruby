@@ -29,18 +29,6 @@ RSpec.describe Player, type: :model do
     end
   end
 
-  describe '#online_players_by_room' do
-    it 'returns all online players in room' do
-      player1 = create(:player, nickname: 'roupi')
-      player2 = create(:player, nickname: 'nalfu')
-      room = create(:room)
-      room.players << [player1, player2]
-      player2.presence_by_room(room).update(online: true)
-      expect(Player.online_players_by_room(room)).to include(player2)
-      expect(Player.online_players_by_room(room)).to_not include(player1)
-    end
-  end
-
   describe '#set_online_status_by_room' do
     it 'alter the online status of the player by a room id' do
       player = create(:player)

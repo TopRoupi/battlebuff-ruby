@@ -10,8 +10,10 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-    @user = current_player
     @room = Room.find(params[:id])
+    if @room.is_full? or current_player.presence_by_room(@room.id).online == true
+      redirect_to "/"
+    end
     @message = Message.new room: @room
     @messages = Message.where(room: @room).includes(:player).last(10)
   end
